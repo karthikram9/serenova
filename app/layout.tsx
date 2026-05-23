@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   title: {
-    default: 'Serenova — Online Therapy & Relationship Counseling',
+    default: 'Serenova - Online Therapy & Relationship Counseling',
     template: '%s | Serenova',
   },
   description:
@@ -27,10 +27,11 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     siteName: 'Serenova',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
