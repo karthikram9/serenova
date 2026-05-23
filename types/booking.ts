@@ -17,6 +17,17 @@ export type PaymentStatus =
   | 'verified'
   | 'failed'
 
+export interface PaymentProof {
+  id: string
+  bookingId: string
+  clientId: string
+  storagePath: string
+  fileName: string
+  fileSize: number
+  upiRef: string | null
+  submittedAt: string
+}
+
 export interface Booking {
   id: string
   clientId: string
@@ -24,8 +35,12 @@ export interface Booking {
   sessionType: SessionType
   bookingStatus: BookingStatus
   paymentStatus: PaymentStatus
-  scheduledAt: string
+  scheduledAt: string | null
+  calBookingUid: string | null
   zoomLink: string | null
+  paymentRef: string | null
+  sessionFeeInr: number
+  isFirstSession: boolean
   therapistNotes: string | null
   clientNotes: string | null
   createdAt: string
@@ -38,6 +53,7 @@ export interface BookingWithClient extends Booking {
     email: string
     avatarUrl: string | null
   }
+  paymentProofs: PaymentProof[]
 }
 
 export const SESSION_TYPE_LABELS: Record<SessionType, string> = {

@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react'
 import { Heart, Users, Sparkles } from 'lucide-react'
+import type { SessionType } from '@/types/booking'
 
 export interface Service {
   id: string
@@ -8,7 +9,7 @@ export interface Service {
   tagline: string
   description: string
   forWhom: string[]
-  sessionType: string
+  sessionType: SessionType
   slug: string
 }
 
