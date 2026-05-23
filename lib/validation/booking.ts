@@ -27,7 +27,10 @@ export const paymentProofSchema = z.object({
 
 export const approvalSchema = z.object({
   bookingId: z.string().uuid(),
-  zoomLink: z.string().url(),
+  zoomLink: z
+    .string()
+    .url('Must be a valid URL')
+    .regex(/^https:\/\/(?:[a-zA-Z0-9-]+\.)?zoom\.us\/[^\s]+$/, 'Must be a valid Zoom meeting URL starting with https://'),
   therapistNotes: z.string().trim().max(2000).optional(),
 })
 
