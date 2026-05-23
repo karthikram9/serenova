@@ -1,0 +1,240 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================
+   SERENOVA DESIGN SYSTEM
+   Emotional Wellness Platform
+   Philosophy: Calm · Warm · Trustworthy · Human
+   ===================================================== */
+
+@theme inline {
+
+  /* ── TYPOGRAPHY ─────────────────────────────────── */
+  --font-display:    "Playfair Display", Georgia, serif;
+  --font-body:       "DM Sans", system-ui, sans-serif;
+
+  /* ── COLOR PALETTE ──────────────────────────────── */
+  /* Primary: Deep Sage Green — calm, grounded, healing */
+  --color-primary-50:   #f2f7f4;
+  --color-primary-100:  #e0ede6;
+  --color-primary-200:  #c2dbcc;
+  --color-primary-300:  #96c0a8;
+  --color-primary-400:  #65a07e;
+  --color-primary-500:  #44845f;
+  --color-primary-600:  #32694a;
+  --color-primary-700:  #28543c;
+  --color-primary-800:  #214430;
+  --color-primary-900:  #1b3827;
+
+  /* Warm Cream — safety, openness, warmth */
+  --color-cream-50:     #fdfcf8;
+  --color-cream-100:    #faf7f0;
+  --color-cream-200:    #f4ede0;
+  --color-cream-300:    #ecdfcc;
+  --color-cream-400:    #e0ccb0;
+  --color-cream-500:    #d4b896;
+
+  /* Warm Terracotta — human warmth, emotional safety */
+  --color-warm-50:      #fdf5f0;
+  --color-warm-100:     #fae8dc;
+  --color-warm-200:     #f5cebc;
+  --color-warm-300:     #ecac90;
+  --color-warm-400:     #e08264;
+  --color-warm-500:     #d4614e;
+
+  /* Stone — neutral grounding */
+  --color-stone-50:     #fafaf9;
+  --color-stone-100:    #f5f5f4;
+  --color-stone-200:    #e7e5e4;
+  --color-stone-300:    #d6d3d1;
+  --color-stone-400:    #a8a29e;
+  --color-stone-500:    #78716c;
+  --color-stone-600:    #57534e;
+  --color-stone-700:    #44403c;
+  --color-stone-800:    #292524;
+  --color-stone-900:    #1c1917;
+
+  /* ── SEMANTIC COLORS ─────────────────────────────── */
+  --color-background:   var(--color-cream-50);
+  --color-foreground:   var(--color-stone-800);
+  --color-muted:        var(--color-stone-100);
+  --color-muted-fg:     var(--color-stone-500);
+  --color-border:       var(--color-cream-300);
+  --color-card:         #ffffff;
+  --color-card-border:  var(--color-cream-200);
+  --color-input:        var(--color-cream-100);
+  --color-ring:         var(--color-primary-400);
+
+  /* ── SHADOWS ─────────────────────────────────────── */
+  --shadow-soft:        0 2px 16px 0 rgba(68,132,95,0.06);
+  --shadow-card:        0 4px 24px 0 rgba(44,61,45,0.08);
+  --shadow-elevated:    0 8px 48px 0 rgba(44,61,45,0.12);
+
+  /* ── BORDER RADIUS ───────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ── SPACING SCALE ───────────────────────────────── */
+  --section-padding-y:    80px;
+  --section-padding-x:    24px;
+  --container-max:        1200px;
+
+  /* ── TRANSITIONS ─────────────────────────────────── */
+  --transition-calm:  all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-quick: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── BASE RESETS ──────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── TYPOGRAPHY SYSTEM ────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-stone-900);
+}
+
+h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h4 { font-size: clamp(1.1rem, 2vw, 1.375rem); }
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.8;
+  color: var(--color-stone-600);
+}
+
+/* ── FOCUS STYLES ─────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── SCROLL BAR ───────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream-100); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-300);
+  border-radius: var(--radius-full);
+}
+
+/* ── SELECTION ────────────────────────────────────── */
+::selection {
+  background: var(--color-primary-100);
+  color: var(--color-primary-800);
+}
+
+/* ── UTILITY CLASSES ──────────────────────────────── */
+.section-padding {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+}
+
+.container-main {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+}
+
+.text-display {
+  font-family: var(--font-display);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-surface {
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.grain-overlay::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+/* ── ANIMATIONS ───────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-cream-100) 25%,
+    var(--color-cream-200) 50%,
+    var(--color-cream-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── STAGGER DELAYS ───────────────────────────────── */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
