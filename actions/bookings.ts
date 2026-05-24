@@ -11,7 +11,7 @@ import { sendBookingConfirmationEmail, sendBookingApprovedEmail, sendBookingReje
 
 type ActionResult<T extends object = object> = ({ success: true } & T) | { error: string }
 
-const revalidateAll = () => ['/book', '/dashboard/sessions', '/dashboard/admin/bookings'].forEach(p => revalidatePath(p))
+const revalidateAll = () => ['/book', '/dashboard', '/dashboard/admin'].forEach(p => revalidatePath(p))
 
 export async function createBooking(formData: FormData): Promise<ActionResult<{ bookingId: string }>> {
   const { user, profile } = await requireClient()
