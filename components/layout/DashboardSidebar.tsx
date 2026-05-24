@@ -7,14 +7,12 @@ import { usePathname, useRouter } from 'next/navigation'
 import { signOut } from '@/actions/auth'
 import { 
   CalendarDays, 
-  MessageCircle, 
   User, 
   LogOut, 
   Menu, 
   X, 
   LayoutDashboard,
-  Clock,
-  Settings
+  Clock
 } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { cn } from '@/lib/utils'
@@ -51,7 +49,7 @@ export function DashboardSidebar({ user, role }: DashboardSidebarProps) {
 
   const clientLinks = [
     { label: 'Upcoming Sessions', href: '/dashboard', icon: CalendarDays },
-    { label: 'Messages', href: '/dashboard/messages', icon: MessageCircle },
+    // { label: 'Messages', href: '/dashboard/messages', icon: MessageCircle },
     { label: 'My Profile', href: '/dashboard/profile', icon: User },
   ]
 
@@ -59,9 +57,9 @@ export function DashboardSidebar({ user, role }: DashboardSidebarProps) {
     { label: 'Overview', href: '/dashboard/admin', icon: LayoutDashboard },
     { label: 'Bookings', href: '/dashboard/admin/bookings', icon: CalendarDays },
     { label: 'Availability', href: '/dashboard/admin/availability', icon: Clock },
-    { label: 'Clients', href: '/dashboard/admin/clients', icon: User },
-    { label: 'Messages', href: '/dashboard/admin/messages', icon: MessageCircle },
-    { label: 'Settings', href: '/dashboard/admin/settings', icon: Settings },
+    // { label: 'Clients', href: '/dashboard/admin/clients', icon: User },
+    // { label: 'Messages', href: '/dashboard/admin/messages', icon: MessageCircle },
+    // { label: 'Settings', href: '/dashboard/admin/settings', icon: Settings },
   ]
 
   const links = role === 'client' ? clientLinks : therapistLinks
